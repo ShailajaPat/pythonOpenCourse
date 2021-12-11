@@ -1,0 +1,22 @@
+class Person(object):
+     species = "Homo sapiens"
+     favorite_color = "black"
+
+     def __init__(self, name="Unknown", age=18):
+          self.name = name
+          self.age = age
+          
+     def talk(self):
+          return "Hello, my name is {}.".format(self.name)
+
+class Employee(Person):
+     def __init__(self, name, age, employer):
+          super(Employee, self).__init__(name, age)
+          self.employer = employer
+     def talk(self):
+         talk_str = super(Employee, self).talk()
+         return talk_str + " I work for {} ".format(self.employer)
+
+fred = Employee("Fred Flintstone", 55, "PTC India Pvt Ltd.")
+
+print(fred.talk())
